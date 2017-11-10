@@ -1,7 +1,7 @@
 # managed by Ansible
 
-Alias "/gemini" "/var/www/html/Crayfish/Gemini/src"
-<Directory "/var/www/html/Crayfish/Gemini/src">
+Alias "/gemini" "{{ crayfish_install_dir }}/Gemini/src"
+<Directory "{{ crayfish_install_dir }}/Gemini/src">
   FallbackResource /gemini/index.php
   Require all granted
   DirectoryIndex index.php

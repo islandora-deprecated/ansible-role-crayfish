@@ -15,30 +15,30 @@
 - name: Install crayfish code
   git:
     repo: https://github.com/Islandora-CLAW/Crayfish.git
-    dest: "/var/www/html/Crayfish"
+    dest: "{{ crayfish_install_dir }}"
     version: "{{ crayfish_version_tag }}"
 
 - name: Build crayfish code including dependencies
   composer:
     command: install
-    working_dir: /var/www/html/Crayfish/{{item}}
+    working_dir: "{{ crayfish_install_dir }}/{{item}}"
   with_items: "{{ crayfish_services }}"
 
 - name: Configure crayfish code
   template:
     src: "{{item}}.config.yaml.j2"
-    dest: "/var/www/html/Crayfish/{{item}}/cfg/config.yaml"
+    dest: "{{ crayfish_install_dir }}/{{item}}/cfg/config.yaml"
   with_items: "{{ crayfish_services }}"
 
 - name: Install auth config
   template:
     src: "syn-settings.xml.jp2"
-    dest: "/var/www/html/Crayfish/{{item}}/syn-settings.xml"
+    dest: "{{ crayfish_install_dir }}/{{item}}/syn-settings.xml"
   with_items: "{{ crayfish_services }}"
 
 - name: Create Islandora log dir
   file:
-    path: /var/log/islandora
+    path: {{ crayfish_log_dir }}
     state: directory
     owner: www-data
     group: www-data
@@ -47,15 +47,15 @@
 - name: Install crayfish httpd config file
   template:
     src: "httpd/{{item}}.conf.j2"
-    dest: "/etc/apache2/conf-available/{{item}}.conf"
+    dest: "{{ crayfish_apache_conf_dir }}/conf-available/{{item}}.conf"
     owner: "{{ crayfish_user }}"
     group: "{{ crayfish_user }}"
   with_items: "{{ crayfish_services }}"
 
 - name: Symlink crayfish httpd config file into action
   file:
-    src: "/etc/apache2/conf-available/{{item}}.conf"
-    dest: "/etc/apache2/conf-enabled/{{item}}.conf"
+    src: "{{ crayfish_apache_conf_dir }}/conf-available/{{item}}.conf"
+    dest: "{{ crayfish_apache_conf_dir }}/conf-enabled/{{item}}.conf"
     owner: "{{ crayfish_user }}"
     group: "{{ crayfish_user }}"
     state: link
