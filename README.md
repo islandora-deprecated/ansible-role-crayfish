@@ -9,28 +9,26 @@ An Ansible role that installs [Crayfish](https://github.com/Islandora-CLAW/Crayf
 
 Available variables are listed below, along with default values:
 
-User to use when installing webservices:
 ```
+# User to install crayfish with (usually the webserver user)
 crayfish_user: www-data
-```
-
-Version to install:
-```
+crayfish_group: www-data
+# Crayfish version to install
 crayfish_version_tag: 0.0.7
-```
-
-Services to install:
-```
+# Crayfish services to install
 crayfish_services:
   - Gemini
   - Houdini
   - Milliner
   - Hypercube
-```
-
-Static JWT token to add:
-```
+# Default crayfish static JWT token
 crayfish_syn_token: islandora
+# Webserver path to install to
+crayfish_install_dir: /var/www/html/Crayfish
+# Crayfish log directory
+crayfish_log_dir: /var/log/islandora
+# Apache configuration directory
+crayfish_apache_conf_dir: /etc/apache2
 ```
 
 There are lots more configuration settings in [defaults/main.yml](defaults/main.yml)
@@ -44,7 +42,7 @@ There are lots more configuration settings in [defaults/main.yml](defaults/main.
 
     - hosts: webservers
       roles:
-        - { role: islandora.crayfish }
+        - { role: Islandora-Devops.crayfish }
 
 ## License
 

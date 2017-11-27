@@ -1,7 +1,7 @@
 # managed by Ansible
 
-Alias "/houdini" "/var/www/html/Crayfish/Houdini/src"
-<Directory "/var/www/html/Crayfish/Houdini/src">
+Alias "/houdini" "{{ crayfish_install_dir }}/Houdini/src"
+<Directory "{{ crayfish_install_dir }}/Houdini/src">
   FallbackResource /houdini/index.php
   Require all granted
   DirectoryIndex index.php
