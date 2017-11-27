@@ -12,6 +12,7 @@ Available variables are listed below, along with default values:
 ```
 # User to install crayfish with (usually the webserver user)
 crayfish_user: www-data
+crayfish_group: www-data
 # Crayfish version to install
 crayfish_version_tag: 0.0.7
 # Crayfish services to install
@@ -41,7 +42,7 @@ There are lots more configuration settings in [defaults/main.yml](defaults/main.
 
     - hosts: webservers
       roles:
-        - { role: islandora.crayfish }
+        - { role: Islandora-Devops.crayfish }
 
 ## License
 

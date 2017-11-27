@@ -38,10 +38,10 @@
 
 - name: Create Islandora log dir
   file:
-    path: {{ crayfish_log_dir }}
+    path: "{{ crayfish_log_dir }}"
     state: directory
-    owner: www-data
-    group: www-data
+    owner: "{{ crayfish_user }}"
+    group: "{{ crayfish_group }}"
     mode: "u+rwx,g+r,o-rwx"
 
 - name: Install crayfish httpd config file
@@ -49,7 +49,7 @@
     src: "httpd/{{item}}.conf.j2"
     dest: "{{ crayfish_apache_conf_dir }}/conf-available/{{item}}.conf"
     owner: "{{ crayfish_user }}"
-    group: "{{ crayfish_user }}"
+    group: "{{ crayfish_group }}"
   with_items: "{{ crayfish_services }}"
 
 - name: Symlink crayfish httpd config file into action
@@ -57,7 +57,7 @@
     src: "{{ crayfish_apache_conf_dir }}/conf-available/{{item}}.conf"
     dest: "{{ crayfish_apache_conf_dir }}/conf-enabled/{{item}}.conf"
     owner: "{{ crayfish_user }}"
-    group: "{{ crayfish_user }}"
+    group: "{{ crayfish_group }}"
     state: link
   with_items: "{{ crayfish_services }}"
   notify: restart apache

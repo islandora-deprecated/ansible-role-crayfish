@@ -1,5 +1,6 @@
 # User to install crayfish with (usually the webserver user)
 crayfish_user: www-data
+crayfish_group: www-data
 # Crayfish version to install
 crayfish_version_tag: 0.0.7
 # Crayfish services to install
