@@ -1,4 +1,4 @@
-crayfish_user: www-data
+crayfish_user: "{% if ansible_os_family == 'RedHat' %}apache{% else %}www-data{% endif %}"
 crayfish_version_tag: 0.0.8
 
 crayfish_services:
@@ -6,7 +6,7 @@ crayfish_services:
   - Houdini
   - Milliner
   - Hypercube
-  
+
 crayfish_install_dir: /var/www/html/Crayfish
 
 crayfish_syn_token: islandora
@@ -90,3 +90,12 @@ crayfish_milliner_db_options:
   user: "{{ crayfish_db_user }}"
   password: "{{ crayfish_db_password }}"
 
+leptonica_version: 1.75.0
+leptonica_build: "/opt/leptonica-{{ leptonica_version }}"
+
+tesseract_version: 3.05
+tesseract_lang_version: 3.04.00
+tesseract_lang_dir: /usr/local/share/tessdata/
+tesseract_directory: "/opt/tesseract-{{ tesseract_version }}"
+
+httpd_conf_directory: "{% if ansible_os_family == 'RedHat' %}/etc/httpd{% else %}/etc/apache2{% endif %}"
