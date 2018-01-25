@@ -69,9 +69,6 @@
     PKG_CONFIG_PATH: /usr/local/lib/pkgconfig
   register: tconfig
 
-- debug:
-    var: tconfig.stdout
-
 - name: Make Tesseract
   command: make
   args:
