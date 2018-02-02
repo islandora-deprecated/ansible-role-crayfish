@@ -19,11 +19,17 @@
     - cairo-devel
     - openjpeg2-devel
 
-- name: Unarchive Leptonica
-  unarchive:
-    remote_src: yes
-    src: "http://www.leptonica.com/source/leptonica-{{ leptonica_version }}.tar.gz"
-    dest: "/opt/"
+- name: Clone Leptonica
+  git:
+    repo: https://github.com/DanBloomberg/leptonica.git
+    dest: "{{ leptonica_build }}"
+    version: "{{ leptonica_version }}"
+
+- name: Create Leptonica configure
+  command: ./autobuild
+  args:
+    chdir: "{{ leptonica_build }}"
+  become: true
 
 - name: Config Leptonica
   command: ./configure

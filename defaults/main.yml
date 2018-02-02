@@ -90,7 +90,7 @@ crayfish_milliner_db_options:
   user: "{{ crayfish_db_user }}"
   password: "{{ crayfish_db_password }}"
 
-leptonica_version: 1.75.0
+leptonica_version: 1.75.1
 leptonica_build: "/opt/leptonica-{{ leptonica_version }}"
 
 tesseract_version: 3.05
