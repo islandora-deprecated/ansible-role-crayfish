@@ -2,10 +2,10 @@
 services: docker
 
 env:
-# - distro: centos7
-  - distro: ubuntu1604
-  - playbook: pgsql.yml
-  - playbook: mysql.yml
+  - playbook=pgsql.yml distro=ubuntu1604
+  - playbook=mysql.yml distro=ubuntu1604
+# - playbook=pgsql.yml distro=centos7
+# - playbook=mysql.yml distro=centos7
 
 script:
   # Download test shim.
