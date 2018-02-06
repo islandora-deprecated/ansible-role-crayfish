@@ -1,15 +1,11 @@
 ---
 - hosts: all
 
-  pre_tasks:
-    - name: Set correct DB variable
-      set_fact:
-        crayfish_db: pgsql
-
   roles:
     - geerlingguy.apache
     - geerlingguy.php
     - geerlingguy.composer
     - geerlingguy.git
     - geerlingguy.postgresql
-    - role_under_test
+    - role: role_under_test
+      crayfish_db: pgsql

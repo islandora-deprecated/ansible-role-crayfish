@@ -52,10 +52,9 @@ The module depends on the following. Links are provided to roles known to work w
   
 ## Example Playbook
 
-    - hosts: webservers
-      roles:
-        - role: Islandora-Devops.crayfish
-          crayfish_db: mysql
+Examples from the role tests: 
+* [Postgresql](tests/pgsql.yml)
+* [Mysql](tests/mysql.yml)
 
 ## License
 
