@@ -12,6 +12,7 @@
     - crayfish-db
   when: crayfish_db == 'pgsql'
   become_user: "{{ crayfish_pgsql_user }}"
+  become: yes
 
 - include: install.yml
   tags:
