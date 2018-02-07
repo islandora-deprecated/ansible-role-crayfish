@@ -1,0 +1,6 @@
+---
+
+__crayfish_user: www-data
+__httpd_conf_directory: /etc/apache2
+__crayfish_packages:
+  - imagemagick

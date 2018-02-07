@@ -1,27 +1,15 @@
 ---
 
-- include: tesseract-centos.yml
-  when: ansible_os_family == "RedHat"
-
-- name: Install ImageMagick (Yum)
-  yum:
-    name: ImageMagick
-    state: present
-  when: ansible_os_family == "RedHat"
-
 - name: Add ImageMagick repo (apt)
   apt_repository:
     repo: 'ppa:lyrasis/imagemagick-jp2'
   when: ansible_os_family == "Debian"
 
 - name: Install requisite packages
-  apt:
-    name: "{{item}}"
+  package:
+    name: "{{ item }}"
     state: present
-  with_items:
-    - tesseract-ocr
-    - imagemagick
-  when: ansible_os_family == "Debian"
+  with_items: "{{ crayfish_packages }}"
 
 - name: Install crayfish code
   git:

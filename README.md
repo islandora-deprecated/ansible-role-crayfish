@@ -10,9 +10,6 @@ An Ansible role that installs [Crayfish](https://github.com/Islandora-CLAW/Crayf
 Available variables are listed below, along with default values:
 
 ```
-# User to install crayfish with (usually the webserver user)
-crayfish_user: www-data
-crayfish_group: www-data
 # Crayfish version to install
 crayfish_version_tag: 0.0.7
 # Crayfish services to install
@@ -31,13 +28,22 @@ crayfish_log_dir: /var/log/islandora
 crayfish_apache_conf_dir: /etc/apache2
 ```
 
+Some OS dependent variables are set in vars/* but can be overridden if desired:
+
+```
+# crayfish_user: www-data
+# httpd_conf_directory: /etc/apache2
+# crayfish_packages:
+#   - ImageMagick
+```
+
 There are lots more configuration settings in [defaults/main.yml](defaults/main.yml)
 
 ## Dependencies
 
 * Apache webserver
 * PHP 7
-  
+
 ## Example Playbook
 
     - hosts: webservers
