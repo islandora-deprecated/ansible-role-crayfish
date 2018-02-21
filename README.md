@@ -1,4 +1,4 @@
-# Ansible Role: Crayfish
+# Ansible Role: Crayfish [![Build Status](https://travis-ci.org/Islandora-Devops/ansible-role-crayfish.svg?branch=master)](https://travis-ci.org/Islandora-Devops/ansible-role-crayfish)
 
 An Ansible role that installs [Crayfish](https://github.com/Islandora-CLAW/Crayfish) on:
 
@@ -27,7 +27,6 @@ crayfish_log_dir: /var/log/islandora
 # Apache configuration directory
 crayfish_apache_conf_dir: /etc/apache2
 ```
-
 Some OS dependent variables are set in vars/* but can be overridden if desired:
 
 ```
@@ -36,6 +35,12 @@ Some OS dependent variables are set in vars/* but can be overridden if desired:
 # crayfish_packages:
 #   - ImageMagick
 ```
+=======
+`crayfish_db` can be set to: 
+ - pgsql 
+ - mysql
+
+ Depending what database you would like to use.
 
 There are lots more configuration settings in [defaults/main.yml](defaults/main.yml)
 
@@ -44,11 +49,21 @@ There are lots more configuration settings in [defaults/main.yml](defaults/main.
 * Apache webserver
 * PHP 7
 
+=======
+The module depends on the following. Links are provided to roles known to work with the mdoule, but should be able to work with any role providing the required software:
+* [Apache](https://galaxy.ansible.com/geerlingguy/apache/)
+* [PHP](https://galaxy.ansible.com/geerlingguy/php/)
+* [Composer](https://galaxy.ansible.com/geerlingguy/composer/)
+* [git](https://galaxy.ansible.com/geerlingguy/git/)
+* database
+  - [pgsql](https://galaxy.ansible.com/geerlingguy/postgresql/)
+  - [mysql](https://galaxy.ansible.com/geerlingguy/mysql/)
+  
 ## Example Playbook
 
-    - hosts: webservers
-      roles:
-        - { role: Islandora-Devops.crayfish }
+Examples from the role tests: 
+* [Postgresql](tests/pgsql.yml)
+* [Mysql](tests/mysql.yml)
 
 ## License
 
