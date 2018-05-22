@@ -67,3 +67,14 @@
     state: link
   with_items: "{{ crayfish_services }}"
   notify: restart apache
+  
+- name: Symlink crayfish httpd config file into action (RedHat)
+  file:
+    src: "{{httpd_conf_directory}}/conf-available/{{item}}.conf"
+    dest: "{{httpd_conf_directory}}/conf.d/{{item}}.conf"
+    owner: "{{ crayfish_user }}"
+    group: "{{ crayfish_user }}"
+    state: link
+  with_items: "{{ crayfish_services }}"
+  notify: restart apache
+  when: ansible_os_family == "RedHat"
