@@ -1,4 +1,3 @@
-crayfish_user: www-data
 crayfish_version_tag: 0.0.8
 
 crayfish_services:
@@ -6,7 +5,7 @@ crayfish_services:
   - Houdini
   - Milliner
   - Hypercube
-  
+
 crayfish_install_dir: /var/www/html/Crayfish
 
 crayfish_syn_token: islandora
@@ -90,3 +89,8 @@ crayfish_milliner_db_options:
   user: "{{ crayfish_db_user }}"
   password: "{{ crayfish_db_password }}"
 
+# OS Dependent variables set in vars can be overridden here
+# crayfish_user: www-data
+# httpd_conf_directory: /etc/apache2
+# crayfish_packages:
+#   - ImageMagick
