@@ -72,7 +72,7 @@
 - name: Symlink crayfish httpd config file into action
   file:
     src: "{{httpd_conf_directory}}/conf-available/{{item}}.conf"
-    dest: "{{httpd_conf_directory}}/conf-enabled/{{item}}.conf"
+    dest: "{{httpd_conf_directory_enabled}}/{{item}}.conf"
     owner: "{{ crayfish_user }}"
     group: "{{ crayfish_user }}"
     state: link
