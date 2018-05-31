@@ -11,13 +11,3 @@
     state: present
     owner: "{{ crayfish_db_user }}"
   register: gemini_db_exists
-
-- name: Grab Gemini db schema (pgsql)
-  template:
-    src: "database/gemini-pgsql.sql"
-    dest: "/tmp/gemini.sql"
-  when: gemini_db_exists.changed
-
-- name: Install Gemini db schema (pgsql)
-  command: psql -d {{ crayfish_db_name }} -f /tmp/gemini.sql
-  when: gemini_db_exists.changed

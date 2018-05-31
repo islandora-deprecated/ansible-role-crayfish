@@ -17,3 +17,8 @@
   tags:
     - crayfish
     - crayfish-install
+
+- include: gemini.yml
+  tags:
+    - crayfish
+    - crayfish-gemini

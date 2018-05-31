@@ -1,0 +1,11 @@
+---
+
+- name: Gemini composer install
+  composer:
+    command: install
+    working_dir: "{{ crayfish_install_dir }}/Gemini"
+
+- name: Gemini migrate db
+  shell: php bin/console migrations:migrate
+  args:
+    chdir: "{{ crayfish_install_dir }}/Gemini"
