@@ -1,16 +1,15 @@
 ---
 
-- name: Install requisite package repositories
+- name: Add ImageMagick repo (apt)
   apt_repository:
     repo: 'ppa:lyrasis/imagemagick-jp2'
+  when: ansible_os_family == "Debian"
 
 - name: Install requisite packages
-  apt:
-    name: "{{item}}"
+  package:
+    name: "{{ item }}"
     state: present
-  with_items:
-    - tesseract-ocr
-    - imagemagick
+  with_items: "{{ crayfish_packages }}"
 
 - name: Install crayfish code
   git:
@@ -31,7 +30,7 @@
   with_items: "{{ crayfish_services }}"
 
 - name: Get SSL keys
-  include_role: 
+  include_role:
     name: Islandora-Devops.keymaster
   vars:
     ssl_key_public_output_path: "{{ crayfish_install_dir }}/public.key"
@@ -46,22 +45,34 @@
   file:
     path: /var/log/islandora
     state: directory
-    owner: www-data
-    group: www-data
-    mode: "u+rwx,g+r,o-rwx"
+    owner: "{{ crayfish_user }}"
+    group: "{{ crayfish_user }}"
+    mode: "urwx,gr,o-rwx"
+
+- name: Create httpd config directories
+  file:
+    path: "{{httpd_conf_directory}}/{{ item }}/"
+    state: directory
+    owner: "{{ crayfish_user }}"
+    group: "{{ crayfish_user }}"
+    mode: "urwx,gr,o-rwx"
+  with_items:
+    - "conf-available"
+    - "conf-enabled"
+  when: ansible_os_family == "RedHat"
 
 - name: Install crayfish httpd config file
   template:
     src: "httpd/{{item}}.conf.j2"
-    dest: "/etc/apache2/conf-available/{{item}}.conf"
+    dest: "{{httpd_conf_directory}}/conf-available/{{item}}.conf"
     owner: "{{ crayfish_user }}"
     group: "{{ crayfish_user }}"
   with_items: "{{ crayfish_services }}"
 
 - name: Symlink crayfish httpd config file into action
   file:
-    src: "/etc/apache2/conf-available/{{item}}.conf"
-    dest: "/etc/apache2/conf-enabled/{{item}}.conf"
+    src: "{{httpd_conf_directory}}/conf-available/{{item}}.conf"
+    dest: "{{httpd_conf_directory}}/conf-enabled/{{item}}.conf"
     owner: "{{ crayfish_user }}"
     group: "{{ crayfish_user }}"
     state: link

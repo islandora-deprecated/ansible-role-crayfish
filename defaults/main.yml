@@ -88,3 +88,9 @@ crayfish_milliner_db_options:
   dbname: "{{ crayfish_db_name }}"
   user: "{{ crayfish_db_user }}"
   password: "{{ crayfish_db_password }}"
+
+# OS Dependent variables set in vars can be overridden here
+# crayfish_user: www-data
+# httpd_conf_directory: /etc/apache2
+# crayfish_packages:
+#   - ImageMagick

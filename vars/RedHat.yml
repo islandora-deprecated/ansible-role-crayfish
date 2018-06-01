@@ -1,0 +1,6 @@
+---
+
+__crayfish_user: apache
+__httpd_conf_directory: /etc/httpd
+__crayfish_packages:
+  - ImageMagick
