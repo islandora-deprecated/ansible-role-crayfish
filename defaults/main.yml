@@ -1,12 +1,11 @@
-crayfish_user: www-data
-crayfish_version_tag: 0.0.8
+crayfish_version_tag: master
 
 crayfish_services:
   - Gemini
   - Houdini
   - Milliner
   - Hypercube
-  
+
 crayfish_install_dir: /var/www/html/Crayfish
 
 crayfish_syn_token: islandora
@@ -89,4 +88,3 @@ crayfish_milliner_db_options:
   dbname: "{{ crayfish_db_name }}"
   user: "{{ crayfish_db_user }}"
   password: "{{ crayfish_db_password }}"
-
