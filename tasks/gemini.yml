@@ -9,3 +9,5 @@
   shell: php bin/console migrations:migrate
   args:
     chdir: "{{ crayfish_install_dir }}/Gemini"
+  register: gemini_migrate
+  changed_when: '"No migrations to execute." not in gemini_migrate.stdout'
