@@ -1,4 +1,4 @@
-crayfish_version_tag: 0.0.8
+crayfish_version_tag: 0.0.9
 
 crayfish_services:
   - Gemini
@@ -94,3 +94,7 @@ crayfish_milliner_db_options:
 # httpd_conf_directory: /etc/apache2
 # crayfish_packages:
 #   - ImageMagick
+
+php_packages_extra:
+  - php7.0-mysql
+  - php7.0-pgsql
