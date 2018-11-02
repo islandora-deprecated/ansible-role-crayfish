@@ -2,32 +2,33 @@
 
 homarus:
   # path to the convert executable
-  executable: ffmpeg
+  executable: {{ crayfish_homarus_executable_config.executable }}
   mime_types:
     valid:
-      - video/mp4
-      - video/x-msvideo
-      - video/ogg
-    default_video: video/mp4
+{% for type in crayfish_homarus_executable_config.mime_types.valid %}
+      - {{ type }}
+{% endfor %}
+    default: {{ crayfish_homarus_executable_config.mime_types.default }}
   mime_to_format:
-      - video/mp4_mp4
-      - video/x-msvideo_avi
-      - video/ogg_ogg
+    valid:
+{% for type in crayfish_homarus_executable_config.mime_to_format %}
+      - {{ type_to_format }}
+{% endfor %}
 
 fedora_resource:
-  base_url: http://localhost:8080/fcrepo/rest
+  base_url: {{ crayfish_houdini_fedora_base_url }}
 
 log:
   # Valid log levels are:
   # DEBUG, INFO, NOTICE, WARNING, ERROR, CRITICAL, ALERT, EMERGENCY, NONE
   # log level none won't open logfile
-  level: DEBUG
-  file: /var/log/islandora/homarus.log
+  level: {{ crayfish_homarus_log_file }}
+  file: {{ crayfish_homarus_log_file }}
 
 syn:
   # toggles JWT security for service
-  enable: True
+  enable: {{ crayfish_homarus_jwt_enabled }}
   # Path to the syn config file for authentication.
   # example can be found here:
   # https://github.com/Islandora-CLAW/Syn/blob/master/conf/syn-settings.example.xml
-  config: ../syn-settings.xml
+  config: {{ crayfish_homarus_jwt_config }}
