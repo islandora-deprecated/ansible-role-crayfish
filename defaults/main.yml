@@ -111,7 +111,7 @@ crayfish_homarus_jwt_config: ../syn-settings.xml
 crayfish_homarus_fedora_base_url: http://localhost:8080/fcrepo/rest
 
 crayfish_homarus_executable_config:
-  executable: convert
+  executable: ffmpeg
   mime_types:
     valid:
       - video/mp4
