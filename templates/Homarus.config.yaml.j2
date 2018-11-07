@@ -10,9 +10,8 @@ homarus:
 {% endfor %}
     default_video: {{ crayfish_homarus_executable_config.mime_types.default_video }}
   mime_to_format:
-    valid:
 {% for type_to_format in crayfish_homarus_executable_config.mime_to_format %}
-      - {{ type_to_format }}
+    - {{ type_to_format }}
 {% endfor %}
 
 fedora_resource:
