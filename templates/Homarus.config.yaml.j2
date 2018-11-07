@@ -8,7 +8,7 @@ homarus:
 {% for type in crayfish_homarus_executable_config.mime_types.valid %}
       - {{ type }}
 {% endfor %}
-    default: {{ crayfish_homarus_executable_config.mime_types.default }}
+    default_video: {{ crayfish_homarus_executable_config.mime_types.default_video }}
   mime_to_format:
     valid:
 {% for type_to_format in crayfish_homarus_executable_config.mime_to_format %}
@@ -22,7 +22,7 @@ log:
   # Valid log levels are:
   # DEBUG, INFO, NOTICE, WARNING, ERROR, CRITICAL, ALERT, EMERGENCY, NONE
   # log level none won't open logfile
-  level: {{ crayfish_homarus_log_file }}
+  level: {{ crayfish_homarus_log_level }}
   file: {{ crayfish_homarus_log_file }}
 
 syn:
