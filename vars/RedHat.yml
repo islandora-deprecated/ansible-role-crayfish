@@ -12,4 +12,5 @@ __crayfish_packages:
   - tesseract-langpack-ita
   - tesseract-langpack-spa
   - tesseract-langpack-srp
+  - ffmpeg
   
