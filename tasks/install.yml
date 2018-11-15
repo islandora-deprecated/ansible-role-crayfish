@@ -5,18 +5,6 @@
     repo: 'ppa:lyrasis/imagemagick-jp2'
   when: ansible_os_family == "Debian"
 
-- name: Add repository nux for ffmpeg
-  yum_repository:
-    name: nux
-    description: Nux Dextop
-    baseurl: mirror.li.nux.ro
-  when: ansible_os_family == "RedHat"
-
-- name: Add ImageMagick repo (apt)
-  apt_repository:
-    repo: 'ppa:lyrasis/imagemagick-jp2'
-  when: ansible_os_family == "RedHat"
-
 - name: Install requisite packages
   package:
     name: "{{ item }}"
