@@ -12,3 +12,4 @@ __crayfish_packages:
   - tesseract-ocr-ita
   - tesseract-ocr-spa
   - tesseract-ocr-srp
+  - ffmpeg

@@ -1,10 +1,11 @@
-crayfish_version_tag: 0.0.10
+crayfish_version_tag: 0.0.11
 
 crayfish_services:
   - Gemini
   - Houdini
   - Milliner
   - Hypercube
+  - Homarus
 
 crayfish_install_dir: /var/www/html/Crayfish
 
@@ -98,3 +99,26 @@ crayfish_milliner_db_options:
 php_packages_extra:
   - php7.0-mysql
   - php7.0-pgsql
+
+
+# homarus
+crayfish_homarus_log_file: /var/log/islandora/homarus.log
+crayfish_homarus_log_level: DEBUG
+
+crayfish_homarus_jwt_enabled: TRUE
+crayfish_homarus_jwt_config: ../syn-settings.xml
+
+crayfish_homarus_fedora_base_url: http://localhost:8080/fcrepo/rest
+
+crayfish_homarus_executable_config:
+  executable: ffmpeg
+  mime_types:
+    valid:
+      - video/mp4
+      - video/x-msvideo
+      - video/ogg
+    default_video: video/mp4
+  mime_to_format:
+      - video/mp4_mp4
+      - video/x-msvideo_avi
+      - video/ogg_ogg    
