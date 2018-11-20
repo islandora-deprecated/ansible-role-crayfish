@@ -13,9 +13,9 @@
 
 - name: Install crayfish code
   git:
-    repo: https://github.com/Natkeeran/Crayfish.git
+    repo: https://github.com/Islandora-CLAW/Crayfish.git
     dest: "{{ crayfish_install_dir }}"
-    version: "homarus"
+    version: "{{ crayfish_version_tag }}"
 
 - name: Build crayfish code including dependencies
   composer:
