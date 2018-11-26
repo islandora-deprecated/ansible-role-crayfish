@@ -117,8 +117,10 @@ crayfish_homarus_executable_config:
       - video/mp4
       - video/x-msvideo
       - video/ogg
-    default_video: video/mp4
+    default: video/mp4
   mime_to_format:
+    valid:
       - video/mp4_mp4
       - video/x-msvideo_avi
       - video/ogg_ogg    
+    default: mp4
