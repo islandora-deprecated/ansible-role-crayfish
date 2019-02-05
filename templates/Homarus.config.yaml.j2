@@ -8,7 +8,7 @@ homarus:
 {% for type in crayfish_homarus_executable_config.mime_types.valid %}
       - {{ type }}
 {% endfor %}
-    default_video: {{ crayfish_homarus_executable_config.mime_types.default_video }}
+    default_video: {{ crayfish_homarus_executable_config.mime_types.default }}
   mime_to_format:
 {% for type_to_format in crayfish_homarus_executable_config.mime_to_format %}
     - {{ type_to_format }}
