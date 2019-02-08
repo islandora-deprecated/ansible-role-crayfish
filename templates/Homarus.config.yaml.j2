@@ -10,9 +10,12 @@ homarus:
 {% endfor %}
     default: {{ crayfish_homarus_executable_config.mime_types.default }}
   mime_to_format:
-{% for type_to_format in crayfish_homarus_executable_config.mime_to_format %}
-    - {{ type_to_format }}
+    valid:
+{% for format in crayfish_homarus_executable_config.mime_to_format.valid %}
+      - {{ format }}
 {% endfor %}
+    default: {{ crayfish_homarus_executable_config.mime_to_format.default }}
+
 
 fedora_resource:
   base_url: {{ crayfish_houdini_fedora_base_url }}
