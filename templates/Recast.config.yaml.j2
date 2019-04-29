@@ -25,3 +25,11 @@ syn:
   # example can be found here:
   # https://github.com/Islandora-CLAW/Syn/blob/master/conf/syn-settings.example.xml
   config: {{ crayfish_recast_jwt_config }}
+
+# Add namespace prefixes used by Fedora for recast service
+# Must be inside an array to maintain the internal associative array.
+namespaces:
+-
+{% for key, value in crayfish_recast_prefixes.items() %}
+  {{ key }}: {{ value }}
+{% endfor %}

@@ -142,3 +142,13 @@ crayfish_recast_jwt_config: ../syn-settings.xml
 crayfish_recast_fedora_base_url: http://localhost:8080/fcrepo/rest
 crayfish_recast_drupal_base_url: http://localhost:8000
 crayfish_recast_gemini_base_url: http://localhost:8000/gemini
+
+crayfish_recast_prefixes:
+  acl: "http://www.w3.org/ns/auth/acl#"
+  fedora: "http://fedora.info/definitions/v4/repository#"
+  ldp: "http://www.w3.org/ns/ldp#"
+  memento: "http://mementoweb.org/ns#"
+  pcdm: "http://pcdm.org/models#"
+  pcdmuse: "http://pcdm.org/use#"
+  webac: "http://fedora.info/definitions/v4/webac#"
+  vcard: "http://www.w3.org/2006/vcard/ns#"

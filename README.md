@@ -18,6 +18,7 @@ crayfish_services:
   - Houdini
   - Milliner
   - Hypercube
+  - Recast
 # Default crayfish static JWT token
 crayfish_syn_token: islandora
 # Webserver path to install to
@@ -40,7 +41,7 @@ Some OS dependent variables are set in vars/* but can be overridden if desired:
  - pgsql 
  - mysql
 
- Depending what database you would like to use.
+ Depending what database you would like to use. If not set it defaults to _mysql_
 
 There are lots more configuration settings in [defaults/main.yml](defaults/main.yml)
 
