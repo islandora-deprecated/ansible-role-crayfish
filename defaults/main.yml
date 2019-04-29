@@ -6,6 +6,7 @@ crayfish_services:
   - Milliner
   - Hypercube
   - Homarus
+  - Recast
 
 crayfish_install_dir: /var/www/html/Crayfish
 
@@ -130,3 +131,14 @@ crayfish_homarus_executable_config:
       - audio/mpeg_mp3
       - audio/aac_m4a
     default: mp4
+
+# recast
+crayfish_recast_log_file: /var/log/islandora/recast.log
+crayfish_recast_log_level: DEBUG
+
+crayfish_recast_jwt_enabled: TRUE
+crayfish_recast_jwt_config: ../syn-settings.xml
+
+crayfish_recast_fedora_base_url: http://localhost:8080/fcrepo/rest
+crayfish_recast_drupal_base_url: http://localhost:8000
+crayfish_recast_gemini_base_url: http://localhost:8000/gemini

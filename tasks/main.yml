@@ -2,27 +2,47 @@
 
 - name: Include OS-specific variables
   include_vars: "{{ ansible_os_family}}.yml"
+  tags:
+    - crayfish
+    - crayfish-install
+    - crayfish-gemini
 
 - name: Define crayfish_user
   set_fact:
     crayfish_user: "{{ __crayfish_user }}"
   when: crayfish_user is not defined
+  tags:
+    - crayfish
+    - crayfish-install
+    - crayfish-gemini
 
 - name: Define httpd_conf_directory
   set_fact:
     httpd_conf_directory: "{{ __httpd_conf_directory }}"
   when: httpd_conf_directory is not defined
+  tags:
+    - crayfish
+    - crayfish-install
+    - crayfish-gemini
 
 - name: Define OS-specific crayfish_packages to install
   set_fact:
     crayfish_packages: "{{ __crayfish_packages }}"
   when: crayfish_packages is not defined
+  tags:
+    - crayfish
+    - crayfish-install
+    - crayfish-gemini
 
 - include: db-mysql.yml
   tags:
     - crayfish
     - crayfish-db
   when: crayfish_db == 'mysql'
+  tags:
+    - crayfish
+    - crayfish-install
+    - crayfish-gemini
 
 - include: db-pgsql.yml
   tags:
@@ -31,6 +51,10 @@
   when: crayfish_db == 'pgsql'
   become_user: "{{ crayfish_pgsql_user }}"
   become: yes
+  tags:
+    - crayfish
+    - crayfish-install
+    - crayfish-gemini
 
 - include: install.yml
   tags:
