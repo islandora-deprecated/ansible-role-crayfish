@@ -3,6 +3,10 @@
 
   vars:
     php_version: "7.1"
+    php_packages_extra:
+      - libapache2-mod-php7.1
+      - php7.1-mysql
+      - php7.1-pgsql
 
   roles:
     - geerlingguy.apache
