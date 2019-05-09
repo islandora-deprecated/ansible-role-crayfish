@@ -6,6 +6,7 @@
     - crayfish
     - crayfish-install
     - crayfish-gemini
+    - crayfish-houdini
 
 - name: Define crayfish_user
   set_fact:
@@ -15,6 +16,7 @@
     - crayfish
     - crayfish-install
     - crayfish-gemini
+    - crayfish-houdini
 
 - name: Define httpd_conf_directory
   set_fact:
@@ -24,6 +26,7 @@
     - crayfish
     - crayfish-install
     - crayfish-gemini
+    - crayfish-houdini
 
 - name: Define OS-specific crayfish_packages to install
   set_fact:
@@ -33,6 +36,7 @@
     - crayfish
     - crayfish-install
     - crayfish-gemini
+    - crayfish-houdini
 
 - name: Define crayfish_db if not defined
   set_fact:
@@ -71,3 +75,8 @@
   tags:
     - crayfish
     - crayfish-gemini
+
+- include: houdini.yml
+  tags:
+    - crayfish
+    - crayfish-houdini

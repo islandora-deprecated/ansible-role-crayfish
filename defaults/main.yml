@@ -121,6 +121,7 @@ crayfish_homarus_executable_config:
       - audio/x-wav
       - audio/mpeg
       - audio/aac
+      - image/jpeg
     default: video/mp4
   mime_to_format:
     valid:
@@ -130,6 +131,7 @@ crayfish_homarus_executable_config:
       - audio/x-wav_wav
       - audio/mpeg_mp3
       - audio/aac_m4a
+      - image/jpeg_image2pipe
     default: mp4
 
 # recast
