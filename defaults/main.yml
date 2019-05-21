@@ -1,4 +1,4 @@
-crayfish_version_tag: 0.1.0
+crayfish_version_tag: 0.2.0
 
 crayfish_services:
   - Gemini
@@ -82,6 +82,7 @@ crayfish_milliner_fedora_base_url: http://localhost:8080/fcrepo/rest
 crayfish_milliner_drupal_base_url: http://localhost:8000
 crayfish_milliner_gemini_base_url: http://localhost:8000/gemini
 crayfish_milliner_modified_date_predicate: http://schema.org/dateModified
+crayfish_milliner_strip_format_jsonld: true
 
 crayfish_milliner_db_options:
   driver: "{{ crayfish_db_driver }}"
