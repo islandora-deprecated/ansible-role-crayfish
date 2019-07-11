@@ -21,13 +21,17 @@ crayfish_db_name: gemini
 crayfish_db_driver: "{% if crayfish_db == 'mysql' %}pdo_mysql{% elif crayfish_db == 'pgsql' %}pdo_pgsql{% endif %}"
 crayfish_db_port: "{% if crayfish_db == 'mysql' %}3306{% elif crayfish_db == 'pgsql' %}5432{% endif %}"
 
+crayfish_fedora_base_url: http://localhost:8080/fcrepo/rest
+crayfish_drupal_base_url: http://localhost:8000
+crayfish_gemini_base_url: http://localhost:8000/gemini
+
 # Gemini default config
 crayfish_gemini_log_file: /var/log/islandora/gemini.log
 crayfish_gemini_log_level: DEBUG
 
 crayfish_gemini_debug: TRUE
 
-crayfish_gemini_fedora_base_url: http://localhost:8080/fcrepo/rest
+crayfish_gemini_fedora_base_url: "{{ crayfish_fedora_base_url }}"
 
 crayfish_gemini_jwt_enabled: TRUE
 crayfish_gemini_jwt_config: ../syn-settings.xml
@@ -47,7 +51,7 @@ crayfish_houdini_log_level: DEBUG
 crayfish_houdini_jwt_enabled: TRUE
 crayfish_houdini_jwt_config: ../syn-settings.xml
 
-crayfish_houdini_fedora_base_url: http://localhost:8080/fcrepo/rest
+crayfish_houdini_fedora_base_url: "{{ crayfish_fedora_base_url }}"
 
 crayfish_houdini_executable_config:
   executable: convert
@@ -66,7 +70,7 @@ crayfish_hypercube_log_level: DEBUG
 crayfish_hypercube_jwt_enabled: TRUE
 crayfish_hypercube_jwt_config: ../syn-settings.xml
 
-crayfish_hypercube_fedora_base_url: http://localhost:8080/fcrepo/rest
+crayfish_hypercube_fedora_base_url: "{{ crayfish_fedora_base_url }}"
 crayfish_hypercube_executable: tesseract
 
 # Milliner default config
@@ -78,9 +82,9 @@ crayfish_milliner_jwt_config: ../syn-settings.xml
 
 crayfish_milliner_debug: TRUE
 
-crayfish_milliner_fedora_base_url: http://localhost:8080/fcrepo/rest
-crayfish_milliner_drupal_base_url: http://localhost:8000
-crayfish_milliner_gemini_base_url: http://localhost:8000/gemini
+crayfish_milliner_fedora_base_url: "{{ crayfish_fedora_base_url }}"
+crayfish_milliner_drupal_base_url: "{{ crayfish_drupal_base_url }}"
+crayfish_milliner_gemini_base_url: "{{ crayfish_gemini_base_url }}"
 crayfish_milliner_modified_date_predicate: http://schema.org/dateModified
 crayfish_milliner_strip_format_jsonld: true
 
@@ -110,7 +114,7 @@ crayfish_homarus_log_level: DEBUG
 crayfish_homarus_jwt_enabled: TRUE
 crayfish_homarus_jwt_config: ../syn-settings.xml
 
-crayfish_homarus_fedora_base_url: http://localhost:8080/fcrepo/rest
+crayfish_homarus_fedora_base_url: "{{ crayfish_fedora_base_url }}"
 
 crayfish_homarus_executable_config:
   executable: ffmpeg
@@ -142,9 +146,9 @@ crayfish_recast_log_level: DEBUG
 crayfish_recast_jwt_enabled: TRUE
 crayfish_recast_jwt_config: ../syn-settings.xml
 
-crayfish_recast_fedora_base_url: http://localhost:8080/fcrepo/rest
-crayfish_recast_drupal_base_url: http://localhost:8000
-crayfish_recast_gemini_base_url: http://localhost:8000/gemini
+crayfish_recast_fedora_base_url: "{{ crayfish_fedora_base_url }}"
+crayfish_recast_drupal_base_url: "{{ crayfish_drupal_base_url }}"
+crayfish_recast_gemini_base_url: "{{ crayfish_gemini_base_url }}"
 
 crayfish_recast_prefixes:
   acl: "http://www.w3.org/ns/auth/acl#"
