@@ -13,4 +13,5 @@ __crayfish_packages:
   - tesseract-langpack-spa
   - tesseract-langpack-srp
   - ffmpeg
+  - poppler-utils
 __crayfish_db: mysql
