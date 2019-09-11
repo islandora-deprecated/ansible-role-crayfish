@@ -71,7 +71,8 @@ crayfish_hypercube_jwt_enabled: TRUE
 crayfish_hypercube_jwt_config: ../syn-settings.xml
 
 crayfish_hypercube_fedora_base_url: "{{ crayfish_fedora_base_url }}"
-crayfish_hypercube_executable: tesseract
+crayfish_hypercube_tesseract_executable: tesseract
+crayfish_hypercube_pdftotext_executable: pdftotext
 
 # Milliner default config
 crayfish_milliner_log_file: /var/log/islandora/milliner.log
