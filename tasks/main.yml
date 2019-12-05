@@ -48,6 +48,11 @@
     - crayfish-install
     - crayfish-gemini
 
+- include: install.yml
+  tags:
+    - crayfish
+    - crayfish-install
+
 - include: db-mysql.yml
   when: crayfish_db == 'mysql'
   tags:
@@ -65,11 +70,6 @@
     - crayfish-db
     - crayfish-install
     - crayfish-gemini
-
-- include: install.yml
-  tags:
-    - crayfish
-    - crayfish-install
 
 - include: gemini.yml
   tags:
