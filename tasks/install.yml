@@ -40,12 +40,6 @@
     working_dir: "{{ crayfish_install_dir }}/{{item}}"
   with_items: "{{ crayfish_services }}"
 
-- name: Configure crayfish code
-  template:
-    src: "{{item}}.config.yaml.j2"
-    dest: "{{ crayfish_install_dir }}/{{item}}/cfg/config.yaml"
-  with_items: "{{ crayfish_services }}"
-
 - name: Get SSL keys
   include_role:
     name: Islandora-Devops.keymaster
@@ -55,12 +49,21 @@
 - name: Install auth config
   template:
     src: "syn-settings.xml.jp2"
-    dest: "{{ crayfish_install_dir }}/{{item}}/syn-settings.xml"
-  with_items: "{{ crayfish_services }}"
+    dest: "{{ crayfish_install_dir }}/syn-settings.xml"
+
+- name: Configure crayfish code (Silex)
+  template:
+    src: "{{item}}.config.yaml.j2"
+    dest: "{{ crayfish_install_dir }}/{{item}}/cfg/config.yaml"
+  with_items: "{{ crayfish_silex_services }}"
+
+- name: Configure crayfish code (Symfony)
+  include_tasks: "./tasks/symfony_config.yml"
+  with_items: "{{ crayfish_symfony_services }}"
 
 - name: Create Islandora log dir
   file:
-    path: /var/log/islandora
+    path: "{{ crayfish_log_directory }}"
     state: directory
     owner: "{{ crayfish_user }}"
     group: "{{ crayfish_user }}"

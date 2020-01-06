@@ -8,9 +8,22 @@ crayfish_services:
   - Homarus
   - Recast
 
+# Temporary to allow Silex/Symfony 4 differences
+crayfish_silex_services:
+  - Gemini
+  - Milliner
+  - Hypercube
+  - Homarus
+  - Recast
+
+crayfish_symfony_services:
+  - Houdini
+
 crayfish_install_dir: /var/www/html/Crayfish
 
 crayfish_syn_token: islandora
+
+crayfish_log_directory: /var/log/islandora
 
 # possible options: mysql, pgsql
 crayfish_db: mysql
@@ -34,7 +47,7 @@ crayfish_gemini_debug: TRUE
 crayfish_gemini_fedora_base_url: "{{ crayfish_fedora_base_url }}"
 
 crayfish_gemini_jwt_enabled: TRUE
-crayfish_gemini_jwt_config: ../syn-settings.xml
+crayfish_gemini_jwt_config: "{{ crayfish_install_dir }}/syn-settings.xml"
 
 crayfish_gemini_db_options:
   driver: "{{ crayfish_db_driver }}"
@@ -49,7 +62,7 @@ crayfish_houdini_log_file: /var/log/islandora/houdini.log
 crayfish_houdini_log_level: DEBUG
 
 crayfish_houdini_jwt_enabled: TRUE
-crayfish_houdini_jwt_config: ../syn-settings.xml
+crayfish_houdini_jwt_config: "{{ crayfish_install_dir }}/syn-settings.xml"
 
 crayfish_houdini_fedora_base_url: "{{ crayfish_fedora_base_url }}"
 
@@ -68,7 +81,7 @@ crayfish_hypercube_log_file: /var/log/islandora/hypercube.log
 crayfish_hypercube_log_level: DEBUG
 
 crayfish_hypercube_jwt_enabled: TRUE
-crayfish_hypercube_jwt_config: ../syn-settings.xml
+crayfish_hypercube_jwt_config: "{{ crayfish_install_dir }}/syn-settings.xml"
 
 crayfish_hypercube_fedora_base_url: "{{ crayfish_fedora_base_url }}"
 crayfish_hypercube_tesseract_executable: tesseract
@@ -79,7 +92,7 @@ crayfish_milliner_log_file: /var/log/islandora/milliner.log
 crayfish_milliner_log_level: DEBUG
 
 crayfish_milliner_jwt_enabled: TRUE
-crayfish_milliner_jwt_config: ../syn-settings.xml
+crayfish_milliner_jwt_config: "{{ crayfish_install_dir }}/syn-settings.xml"
 
 crayfish_milliner_debug: TRUE
 
@@ -113,7 +126,7 @@ crayfish_homarus_log_file: /var/log/islandora/homarus.log
 crayfish_homarus_log_level: DEBUG
 
 crayfish_homarus_jwt_enabled: TRUE
-crayfish_homarus_jwt_config: ../syn-settings.xml
+crayfish_homarus_jwt_config: "{{ crayfish_install_dir }}/syn-settings.xml"
 
 crayfish_homarus_fedora_base_url: "{{ crayfish_fedora_base_url }}"
 
@@ -145,7 +158,7 @@ crayfish_recast_log_file: /var/log/islandora/recast.log
 crayfish_recast_log_level: DEBUG
 
 crayfish_recast_jwt_enabled: TRUE
-crayfish_recast_jwt_config: ../syn-settings.xml
+crayfish_recast_jwt_config: "{{ crayfish_install_dir }}/syn-settings.xml"
 
 crayfish_recast_fedora_base_url: "{{ crayfish_fedora_base_url }}"
 crayfish_recast_drupal_base_url: "{{ crayfish_drupal_base_url }}"
