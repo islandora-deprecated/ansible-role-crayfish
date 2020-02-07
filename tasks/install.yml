@@ -33,7 +33,7 @@
     repo: https://github.com/Islandora-CLAW/Crayfish.git
     dest: "{{ crayfish_install_dir }}"
     version: "{{ crayfish_version_tag }}"
-    force: yes #hope this is ok, seems like it should be.
+    force: yes 
 
 - name: Build crayfish code including dependencies
   composer:
