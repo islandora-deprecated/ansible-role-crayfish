@@ -31,6 +31,9 @@ crayfish_pgsql_user: postgres
 crayfish_db_user: crayfish
 crayfish_db_password: islandora
 crayfish_db_name: gemini
+crayfish_db_host: 127.0.0.1 
+crayfish_db_root_user: "{% if crayfish_db == 'mysql' %}root{% elif crayfish_db == 'pgsql' %}{{ crayfish_pgsql_user }}{% endif %}" 
+crayfish_db_root_password: "{{ crayfish_db_password }}"
 crayfish_db_driver: "{% if crayfish_db == 'mysql' %}pdo_mysql{% elif crayfish_db == 'pgsql' %}pdo_pgsql{% endif %}"
 crayfish_db_port: "{% if crayfish_db == 'mysql' %}3306{% elif crayfish_db == 'pgsql' %}5432{% endif %}"
 
@@ -51,7 +54,7 @@ crayfish_gemini_jwt_config: "{{ crayfish_install_dir }}/syn-settings.xml"
 
 crayfish_gemini_db_options:
   driver: "{{ crayfish_db_driver }}"
-  host: 127.0.0.1
+  host: "{{ crayfish_db_host }}"
   port: "{{ crayfish_db_port }}"
   dbname: "{{ crayfish_db_name }}"
   user: "{{ crayfish_db_user }}"

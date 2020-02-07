@@ -14,4 +14,7 @@ __crayfish_packages:
   - tesseract-ocr-srp
   - ffmpeg
   - poppler-utils
+  - python-psycopg2
+  - python-mysqldb
+  - mysql-client 
 __crayfish_db: mysql
