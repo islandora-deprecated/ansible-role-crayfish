@@ -33,7 +33,7 @@
     repo: https://github.com/Islandora-CLAW/Crayfish.git
     dest: "{{ crayfish_install_dir }}"
     version: "{{ crayfish_version_tag }}"
-    force: yes 
+    force: yes
 
 - name: Build crayfish code including dependencies
   composer:
@@ -56,11 +56,13 @@
   template:
     src: "{{item}}.config.yaml.j2"
     dest: "{{ crayfish_install_dir }}/{{item}}/cfg/config.yaml"
-  with_items: "{{ crayfish_silex_services }}"
+  loop: "{{ crayfish_silex_services|flatten(levels=1) }}"
 
 - name: Configure crayfish code (Symfony)
   include_tasks: "./tasks/symfony_config.yml"
-  with_items: "{{ crayfish_symfony_services }}"
+  loop: "{{ crayfish_symfony_services|flatten(levels=1) }}"
+  loop_control:
+    loop_var: outer_item
 
 - name: Create Islandora log dir
   file:

@@ -13,10 +13,10 @@ crayfish_silex_services:
   - Gemini
   - Milliner
   - Hypercube
-  - Homarus
   - Recast
 
 crayfish_symfony_services:
+  - Homarus
   - Houdini
 
 crayfish_install_dir: /var/www/html/Crayfish
@@ -144,13 +144,13 @@ crayfish_homarus_executable_config:
     default: video/mp4
   mime_to_format:
     valid:
-      - video/mp4_mp4
-      - video/x-msvideo_avi
-      - video/ogg_ogg
-      - audio/x-wav_wav
-      - audio/mpeg_mp3
-      - audio/aac_m4a
-      - image/jpeg_image2pipe
+      video/mp4: mp4
+      video/x-msvideo: avi
+      video/ogg: ogg
+      audio/x-wav: wav
+      audio/mpeg: mp3
+      audio/aac: m4a
+      image/jpeg: image2pipe
     default: mp4
 
 # recast
