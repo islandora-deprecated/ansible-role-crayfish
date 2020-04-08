@@ -1,6 +1,6 @@
 ---
 
-- set_fact: crayfish_loop="{{ item }}"
+- set_fact: crayfish_loop="{{ outer_item }}"
 
 - name: Verify/Create Symfony config directories
   file:
