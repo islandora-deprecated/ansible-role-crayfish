@@ -5,4 +5,7 @@
 - geerlingguy.mysql
 - geerlingguy.postgresql
 - geerlingguy.git
-- Islandora-Devops.keymaster
+
+- src: https://github.com/Islandora-Devops/ansible-role-keymaster
+  name: Islandora-Devops.keymaster
+  version: main
