@@ -36,6 +36,7 @@ crayfish_db_port: "{% if crayfish_db == 'mysql' %}3306{% elif crayfish_db == 'pg
 
 crayfish_drupal_base_url: http://localhost:8000
 crayfish_gemini_base_url: http://localhost:8000/gemini
+crayfish_fedora_base_url: http://localhost:8080/fcrepo/rest
 crayfish_gemini_fedora_domain:
 crayfish_gemini_drupal_domain:
 

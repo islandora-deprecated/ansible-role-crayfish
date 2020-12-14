@@ -11,4 +11,4 @@
     name: "{{ crayfish_db_user }}"
     password: "{{ crayfish_db_password }}"
     state: present
-    priv: "{{crayfish_db_name}}.*:ALL"
+    priv: "{{ crayfish_db_name }}.*:ALL"
