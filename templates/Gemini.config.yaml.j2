@@ -2,7 +2,11 @@
 
 # managed by Ansible
 
-fedora_base_url: {{ crayfish_gemini_fedora_base_url }}
+# Leave these blank unless you know what you're doing.  If you're moving
+# data from one server to another and the domain changes, set these
+# to your new domain.
+fedora_domain: {{ crayfish_gemini_fedora_domain }}
+drupal_domain: {{ crayfish_gemini_drupal_domain }}
 
 debug: {{ crayfish_gemini_debug }}
 

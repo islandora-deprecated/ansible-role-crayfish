@@ -1,12 +1,13 @@
 ---
 - hosts: all
+  become: yes
 
   vars:
-    php_version: "7.2"
+    crayfish_version_tag: "dev"
+    php_version: "7.4"
     php_packages_extra:
-      - libapache2-mod-php7.2
-      - php7.2-mysql
-      - php7.2-pgsql
+      - libapache2-mod-php7.4
+      - php7.4-pgsql
 
   roles:
     - geerlingguy.apache

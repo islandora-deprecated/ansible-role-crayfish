@@ -2,8 +2,8 @@
 services: docker
 
 env:
-  - playbook=pgsql.yml distro=ubuntu1604
-  - playbook=mysql.yml distro=ubuntu1604
+  - playbook=pgsql.yml distro=ubuntu1804
+  - playbook=mysql.yml distro=ubuntu1804
 # - playbook=pgsql.yml distro=centos7
 # - playbook=mysql.yml distro=centos7
 

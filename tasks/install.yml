@@ -30,15 +30,15 @@
 
 - name: Install crayfish code
   git:
-    repo: https://github.com/Islandora-CLAW/Crayfish.git
+    repo: https://github.com/Islandora/Crayfish.git
     dest: "{{ crayfish_install_dir }}"
     version: "{{ crayfish_version_tag }}"
-    force: yes 
+    force: yes
 
 - name: Build crayfish code including dependencies
   composer:
     command: install
-    working_dir: "{{ crayfish_install_dir }}/{{item}}"
+    working_dir: "{{ crayfish_install_dir }}/{{ item }}"
   with_items: "{{ crayfish_services }}"
 
 - name: Get SSL keys
@@ -54,8 +54,8 @@
 
 - name: Configure crayfish code (Silex)
   template:
-    src: "{{item}}.config.yaml.j2"
-    dest: "{{ crayfish_install_dir }}/{{item}}/cfg/config.yaml"
+    src: "{{ item }}.config.yaml.j2"
+    dest: "{{ crayfish_install_dir }}/{{ item }}/cfg/config.yaml"
   with_items: "{{ crayfish_silex_services }}"
 
 - name: Configure crayfish code (Symfony)
@@ -72,7 +72,7 @@
 
 - name: Create httpd config directories
   file:
-    path: "{{httpd_conf_directory}}/{{ item }}/"
+    path: "{{ httpd_conf_directory }}/{{ item }}/"
     state: directory
     owner: "{{ crayfish_user }}"
     group: "{{ crayfish_user }}"
@@ -84,16 +84,16 @@
 
 - name: Install crayfish httpd config file
   template:
-    src: "httpd/{{item}}.conf.j2"
-    dest: "{{httpd_conf_directory}}/conf-available/{{item}}.conf"
+    src: "httpd/{{ item }}.conf.j2"
+    dest: "{{ httpd_conf_directory }}/conf-available/{{ item }}.conf"
     owner: "{{ crayfish_user }}"
     group: "{{ crayfish_user }}"
   with_items: "{{ crayfish_services }}"
 
 - name: Symlink crayfish httpd config file into action
   file:
-    src: "{{httpd_conf_directory}}/conf-available/{{item}}.conf"
-    dest: "{{httpd_conf_directory_enabled}}/{{item}}.conf"
+    src: "{{ httpd_conf_directory }}/conf-available/{{ item }}.conf"
+    dest: "{{ httpd_conf_directory_enabled }}/{{ item }}.conf"
     owner: "{{ crayfish_user }}"
     group: "{{ crayfish_user }}"
     state: link
