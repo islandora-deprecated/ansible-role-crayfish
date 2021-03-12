@@ -1,7 +1,6 @@
 crayfish_version_tag: 1.0.0
 
 crayfish_services:
-  - Gemini
   - Houdini
   - Milliner
   - Hypercube
@@ -10,7 +9,6 @@ crayfish_services:
 
 # Temporary to allow Silex/Symfony 4 differences
 crayfish_silex_services:
-  - Gemini
   - Milliner
   - Hypercube
   - Homarus
@@ -25,39 +23,8 @@ crayfish_syn_token: islandora
 
 crayfish_log_directory: /var/log/islandora
 
-# possible options: mysql, pgsql
-crayfish_db: mysql
-crayfish_pgsql_user: postgres
-crayfish_db_user: crayfish
-crayfish_db_password: islandora
-crayfish_db_name: gemini
-crayfish_db_driver: "{% if crayfish_db == 'mysql' %}pdo_mysql{% elif crayfish_db == 'pgsql' %}pdo_pgsql{% endif %}"
-crayfish_db_port: "{% if crayfish_db == 'mysql' %}3306{% elif crayfish_db == 'pgsql' %}5432{% endif %}"
-
 crayfish_drupal_base_url: http://localhost:8000
-crayfish_gemini_base_url: http://localhost:8000/gemini
 crayfish_fedora_base_url: http://localhost:8080/fcrepo/rest
-crayfish_gemini_fedora_domain:
-crayfish_gemini_drupal_domain:
-
-# Gemini default config
-crayfish_gemini_log_file: /var/log/islandora/gemini.log
-crayfish_gemini_log_level: DEBUG
-
-crayfish_gemini_debug: TRUE
-
-crayfish_gemini_fedora_base_url: "{{ crayfish_fedora_base_url }}"
-
-crayfish_gemini_jwt_enabled: TRUE
-crayfish_gemini_jwt_config: "{{ crayfish_install_dir }}/syn-settings.xml"
-
-crayfish_gemini_db_options:
-  driver: "{{ crayfish_db_driver }}"
-  host: 127.0.0.1
-  port: "{{ crayfish_db_port }}"
-  dbname: "{{ crayfish_db_name }}"
-  user: "{{ crayfish_db_user }}"
-  password: "{{ crayfish_db_password }}"
 
 # Houdini default config
 crayfish_houdini_log_file: /var/log/islandora/houdini.log
@@ -100,17 +67,8 @@ crayfish_milliner_debug: TRUE
 
 crayfish_milliner_fedora_base_url: "{{ crayfish_fedora_base_url }}"
 crayfish_milliner_drupal_base_url: "{{ crayfish_drupal_base_url }}"
-crayfish_milliner_gemini_base_url: "{{ crayfish_gemini_base_url }}"
 crayfish_milliner_modified_date_predicate: http://schema.org/dateModified
 crayfish_milliner_strip_format_jsonld: true
-
-crayfish_milliner_db_options:
-  driver: "{{ crayfish_db_driver }}"
-  host: 127.0.0.1
-  port: "{{ crayfish_db_port }}"
-  dbname: "{{ crayfish_db_name }}"
-  user: "{{ crayfish_db_user }}"
-  password: "{{ crayfish_db_password }}"
 
 # OS Dependent variables set in vars can be overridden here
 # crayfish_user: www-data
@@ -121,7 +79,6 @@ crayfish_milliner_db_options:
 php_packages_extra:
   - php7.0-mysql
   - php7.0-pgsql
-
 
 # homarus
 crayfish_homarus_log_file: /var/log/islandora/homarus.log
@@ -164,7 +121,6 @@ crayfish_recast_jwt_config: "{{ crayfish_install_dir }}/syn-settings.xml"
 
 crayfish_recast_fedora_base_url: "{{ crayfish_fedora_base_url }}"
 crayfish_recast_drupal_base_url: "{{ crayfish_drupal_base_url }}"
-crayfish_recast_gemini_base_url: "{{ crayfish_gemini_base_url }}"
 
 crayfish_recast_prefixes:
   acl: "http://www.w3.org/ns/auth/acl#"

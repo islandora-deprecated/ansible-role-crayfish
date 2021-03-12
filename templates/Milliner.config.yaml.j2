@@ -4,21 +4,12 @@
 
 fedora_base_url: {{ crayfish_milliner_fedora_base_url }}
 drupal_base_url: {{ crayfish_milliner_drupal_base_url }}
-gemini_base_url: {{ crayfish_milliner_gemini_base_url }}
 
 modified_date_predicate: {{ crayfish_milliner_modified_date_predicate }}
 
 strip_format_jsonld: {{ crayfish_milliner_strip_format_jsonld }}
 
 debug: {{ crayfish_milliner_debug }}
-
-db.options:
-  driver: {{ crayfish_milliner_db_options.driver }}
-  host: {{ crayfish_milliner_db_options.host }}
-  port: {{ crayfish_milliner_db_options.port }}
-  dbname: {{ crayfish_milliner_db_options.dbname }}
-  user: {{ crayfish_milliner_db_options.user }}
-  password: {{ crayfish_milliner_db_options.password }}
 
 log:
   # Valid log levels are:
